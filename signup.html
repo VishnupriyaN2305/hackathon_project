@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Sign up</title>
+        <link rel="stylesheet" href="./style1.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="particles-js">
+            <div class="heading">
+                <legend><h1 data-test-id="board-title" style="font-size: 48px;">Login Page</h1><br><br></legend>
+                <h6 data-test-id="board-title" style="font-size: 28px;">Username</h6><input type = "text" id="username"/><br><br>
+                <h6 data-test-id="board-title" style="font-size: 28px;">Password</h6><input type = "text" id="password"/>
+                <p  id="signup" class="signup" style="font-size: 28px;">SignUp</a></p>
+                </fielset>
+    </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD94DjQ0ExYtwdMDONKsxlTLmANpCW0nd4",
+    authDomain: "simplezy-25ac5.firebaseapp.com",
+    databaseURL: "https://simplezy-25ac5.firebaseio.com",
+    projectId: "simplezy-25ac5",
+    storageBucket: "simplezy-25ac5.appspot.com",
+    messagingSenderId: "239209626405",
+    appId: "1:239209626405:web:fbbefaf9cea86161a5b8cc",
+    measurementId: "G-3M5P0X1VGN"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+    </body>
+</html>
+
+<script>
+    $("#signup").click(function(){
+        var email1=$("#username").val();
+        var email=email1.toString().trim();
+        alert(email1);
+        var psw=$("#password").val();
+        firebase.auth().createUserWithEmailAndPassword(email, psw).catch(function(error) {
+        console.log(error.code);
+        console.log(error.message);
+});
+    });
+</script>
