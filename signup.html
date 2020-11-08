@@ -6,9 +6,6 @@
     </head>
     <body>
         <div id="particles-js">
-            <a href="Dashboard.html">
-                <img src="./1.png" alt="Dashboard" width="250px" height="" data-no-retina="" style="display: inline;">
-                </a>
             <div class="heading">
                 <legend><h1 data-test-id="board-title" style="font-size: 48px;">Sign up Page</h1><br><br></legend>
                 <h6 data-test-id="board-title" style="font-size: 28px;">Username</h6><input type = "text" id="username"/><br><br>
@@ -55,7 +52,9 @@
         var email=email1.toString().trim();
         alert(email1);
         var psw=$("#password").val();
-        firebase.auth().createUserWithEmailAndPassword(email, psw).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(email, psw).then(function(){
+            window.location.href = "signIn.html";})
+            .catch(function(error) {
         console.log(error.code);
         console.log(error.message);
 });

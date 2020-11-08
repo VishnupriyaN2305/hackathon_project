@@ -2,18 +2,17 @@
     <head>
         <title>Sign In</title>
         <link rel="stylesheet" href="style1.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div id="particles-js">
-            <a href="Dashboard.html">
-                <img src="./1.png" alt="Dashboard" width="250px" height="" data-no-retina="" style="display: inline;">
-                </a>
+            
             <div class="heading">
             <fieldset>
             <legend><h1 data-test-id="board-title" style="font-size: 48px;">Sign In Page</h1><br><br></legend>
             <h6 data-test-id="board-title" style="font-size: 28px;">Username</h6><input type = "text" id="username"/><br><br>
             <h6 data-test-id="board-title" style="font-size: 28px;">Password</h6><input type = "text" id="password"/>
-            <p class="login" style="font-size: 28px;"><a href="Dashboard.html">Login</a></p>
+            <p class="login" style="font-size: 28px;" id="login">Login</a></p>
             </fieldset>
     </div>
         </div>
@@ -51,11 +50,16 @@
 </html>
 
 <script>
+    $("#login").click(function(){
     var email=$("#username").val();
     var password=$("#password").val();
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+            window.location.href = "Dashboard.html";
+            })
+    .catch(function(error) {
    console.log(error.code);
    console.log(error.message);
+});
 });
 </script>
         <script src="background/particles.js"></script>
